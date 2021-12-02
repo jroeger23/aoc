@@ -29,7 +29,7 @@ runSolver :: Solver -> String -> IO ()
 runSolver solver file = do
   handle <- openFile file ReadMode
   contents <- hGetContents handle
-  putStr $ solver contents
+  putStrLn $ solver contents
   hClose handle
 
 printSolvers :: IO ()
