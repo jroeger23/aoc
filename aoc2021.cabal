@@ -25,6 +25,7 @@ source-repository head
 
 library
   exposed-modules:
+      AoC2021.Day01
       Solver
   other-modules:
       Paths_aoc2021

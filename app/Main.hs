@@ -9,15 +9,12 @@ import           System.Exit        (exitFailure)
 import           System.IO          (IOMode (ReadMode), hClose, hGetContents,
                                      openFile)
 
-foo :: Solver
-foo = undefined
-bar :: Solver
-bar = undefined
+import qualified AoC2021.Day01      as D01
 
 
 implementedSolvers :: [(String, Solver)]
-implementedSolvers = [ ("day01-1", foo)
-                     , ("day01-2", bar)
+implementedSolvers = [ ("day01-1", D01.solve01)
+                     , ("day01-2", D01.solve02)
                      ]
 
 printUsage :: IO ()
