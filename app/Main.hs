@@ -29,7 +29,9 @@ runSolver :: Solver -> String -> IO ()
 runSolver solver file = do
   handle <- openFile file ReadMode
   contents <- hGetContents handle
+  putStrLn "---- Output ----"
   putStrLn $ solver contents
+  putStrLn "----------------"
   hClose handle
 
 printSolvers :: IO ()
@@ -37,9 +39,11 @@ printSolvers = forM_ (map fst implementedSolvers) (putStrLn.(" - "<>))
 
 main :: IO ()
 main = do
-  (solver, file) <- firstTwoArgs
-  case lookup solver implementedSolvers of
-    Just solver -> runSolver solver file
+  (nSolver, file) <- firstTwoArgs
+  case lookup nSolver implementedSolvers of
+    Just solver -> do
+      putStrLn $ "Running solver " ++ nSolver ++ " on " ++ file
+      runSolver solver file
     Nothing     -> do
       putStrLn "Solver not found. Implemented solvers are:"
       printSolvers
