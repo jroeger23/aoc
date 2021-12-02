@@ -25,7 +25,7 @@ source-repository head
 
 library
   exposed-modules:
-      Common
+      Solver
   other-modules:
       Paths_aoc2021
   hs-source-dirs:
