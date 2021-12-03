@@ -1,6 +1,7 @@
 module AoC2021.Day02 where
 
 import           Control.Applicative ((<|>))
+import           Data.Function       ((&))
 import           Data.Functor        ((<&>))
 import           Solver              (Solver)
 import qualified Text.Parsec         as P
@@ -29,7 +30,7 @@ parseAllMoves = P.many $ do
 
 
 evaluateMoves :: Num a => [Move a] -> Position a
-evaluateMoves = foldl (flip ($)) (Position 0 0)
+evaluateMoves = foldl (&) (Position 0 0)
 
 solve01 :: Solver
 solve01 input = case P.runParser parseAllMoves () "Day02-01" input of
