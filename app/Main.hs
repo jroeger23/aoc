@@ -10,11 +10,13 @@ import           System.IO          (IOMode (ReadMode), hClose, hGetContents,
                                      openFile)
 
 import qualified AoC2021.Day01      as D01
+import qualified AoC2021.Day02      as D02
 
 
 implementedSolvers :: [(String, Solver)]
 implementedSolvers = [ ("day01-1", D01.solve01)
                      , ("day01-2", D01.solve02)
+                     , ("day02-1", D02.solve01)
                      ]
 
 printUsage :: IO ()
