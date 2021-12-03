@@ -17,6 +17,7 @@ implementedSolvers :: [(String, Solver)]
 implementedSolvers = [ ("day01-1", D01.solve01)
                      , ("day01-2", D01.solve02)
                      , ("day02-1", D02.solve01)
+                     , ("day02-2", D02.solve02)
                      ]
 
 printUsage :: IO ()
