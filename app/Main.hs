@@ -13,6 +13,7 @@ import qualified AoC2021.Day01      as D01
 import qualified AoC2021.Day02      as D02
 import qualified AoC2021.Day03      as D03
 import qualified AoC2021.Day04      as D04
+import qualified AoC2021.Day05      as D05
 
 
 implementedSolvers :: [(String, Solver)]
@@ -23,6 +24,7 @@ implementedSolvers = [ ("day01-1", D01.solve01)
                      , ("day03-1", D03.solve01)
                      , ("day03-2", D03.solve02)
                      , ("day04-1", D04.solve01)
+                     , ("day05-1", D05.solve01)
                      ]
 
 printUsage :: IO ()

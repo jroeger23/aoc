@@ -29,6 +29,7 @@ library
       AoC2021.Day02
       AoC2021.Day03
       AoC2021.Day04
+      AoC2021.Day05
       Solver
   other-modules:
       Paths_aoc2021

@@ -30,10 +30,7 @@
     {
       "label": "Stack - run AoC solver",
       "type": "process",
-      "group": {
-        "kind": "build",
-        "isDefault": true
-      },
+      "group": "none",
       "command": "stack",
       "args": [
         "run",
