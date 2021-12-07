@@ -10,6 +10,7 @@ import qualified Data.IntMap    as M
 import qualified Data.IntSet    as S
 import           Data.Maybe     (fromMaybe)
 import           Debug.Trace
+import           Parsers
 import qualified Text.Parsec    as P
 
 
@@ -18,11 +19,6 @@ type Board = M.IntMap Int
 -- marked cell indices
 type Marks = S.IntSet
 
-type Parser = P.Parsec String ()
-
-
-parseIntegral :: (Read i, Integral i) => Parser i
-parseIntegral = read <$> P.many1 P.digit
 
 endByOnce :: Parser a -> Parser b -> Parser a
 endByOnce p end = do
