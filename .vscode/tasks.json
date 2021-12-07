@@ -26,6 +26,29 @@
       "args": [
         "build"
       ]
+    },
+    {
+      "label": "Stack - run AoC solver",
+      "type": "process",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "command": "stack",
+      "args": [
+        "run",
+        "--",
+        "${input:solver}",
+        "${workspaceFolder}/inputs/${input:solver}"
+      ]
+    }
+  ],
+  "inputs": [
+    {
+      "id": "solver",
+      "type": "promptString",
+      "description": "AoC Solver name",
+      "default": "no solver"
     }
   ]
 }
