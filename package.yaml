@@ -25,6 +25,7 @@ dependencies:
 - hmatrix
 - array
 - transformers
+- containers
 
 library:
   source-dirs: src

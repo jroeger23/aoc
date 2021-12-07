@@ -28,6 +28,7 @@ library
       AoC2021.Day01
       AoC2021.Day02
       AoC2021.Day03
+      AoC2021.Day04
       Solver
   other-modules:
       Paths_aoc2021
@@ -36,6 +37,7 @@ library
   build-depends:
       array
     , base >=4.7 && <5
+    , containers
     , hmatrix
     , parsec
     , transformers
@@ -52,6 +54,7 @@ executable aoc2021-exe
       aoc2021
     , array
     , base >=4.7 && <5
+    , containers
     , hmatrix
     , parsec
     , transformers
@@ -62,6 +65,7 @@ test-suite aoc2021-test
   main-is: Spec.hs
   other-modules:
       AoC2021.Day03Spec
+      AoC2021.Day04Spec
       Paths_aoc2021
   hs-source-dirs:
       test
@@ -70,6 +74,7 @@ test-suite aoc2021-test
       aoc2021
     , array
     , base >=4.7 && <5
+    , containers
     , hmatrix
     , hspec
     , parsec
