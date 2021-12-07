@@ -43,7 +43,7 @@ parseBoard = M.fromList . flip zip [1..] . concat <$> parseGrid
 parseAll :: Parser ([Int], [Board])
 parseAll = do
   ns <- parseBingoNumbers
-  P.endOfLine
+  P.many1 P.endOfLine
   bs <- P.sepEndBy1 parseBoard P.spaces
   return (ns, bs)
 
