@@ -3,6 +3,7 @@ module AoC2021.Day04Spec where
 import           AoC2021.Day04
 import qualified Data.IntMap   as M
 import qualified Data.IntSet   as S
+import           Parsers
 import           Test.Hspec
 import qualified Text.Parsec   as P
 
