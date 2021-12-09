@@ -2,9 +2,8 @@ module AoC2021.Day05 where
 
 import           Data.Foldable   (Foldable (fold))
 import qualified Data.Map.Strict as M
-import           Parsers
+import qualified Parsers         as P
 import           Solver          (Solver)
-import qualified Text.Parsec     as P
 
 
 data Point a = Point a a deriving (Eq, Show, Ord)
@@ -19,16 +18,16 @@ instance Semigroup AdditiveGrid where
 instance Monoid AdditiveGrid where
   mempty = AdditiveGrid M.empty
 
-parsePoint :: (Read i, Integral i) => Parser (Point i)
+parsePoint :: (Read i, Integral i) => P.Parser (Point i)
 parsePoint = do
-  x <- parseIntegral
-  surroundBy (P.char ',') parseSpace
-  Point x <$> parseIntegral
+  x <- P.parseIntegral
+  P.surroundBy (P.char ',') P.parseSpace
+  Point x <$> P.parseIntegral
 
-parseLine :: Parser Line
+parseLine :: P.Parser Line
 parseLine = do
   p1 <- parsePoint
-  surroundBy (P.string "->") parseSpace
+  P.surroundBy (P.string "->") P.parseSpace
   p2 <- parsePoint
   return (p1, p2)
 
@@ -46,7 +45,7 @@ twoPointOverlapCount = sum . indicate . foldMap lineToGrid
   where indicate (AdditiveGrid m) = map (\x -> if x >= 2 then 1 else 0) $ M.elems m
 
 solve01 :: Solver
-solve01 input = case P.runP (parseLinesWith parseLine) () "Day05 - input" input of
+solve01 input = case P.runP (P.parseLinesWith parseLine) () "Day05 - input" input of
   Left e   -> show e
   Right ls -> show (twoPointOverlapCount ls)
 

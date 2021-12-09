@@ -1,21 +1,26 @@
-module Parsers where
+module Parsers (
+  module Parsers,
+  module Text.Parsec
+) where
 
-import qualified Text.Parsec as P
+import           Text.Parsec
 
-type Parser = P.Parsec String ()
+type Parser = Parsec String ()
 
 parseIntegral :: (Read i, Integral i) => Parser i
-parseIntegral = read <$> P.many1 P.digit
-
+parseIntegral = read <$> many1 digit
 
 parseSpace :: Parser String
-parseSpace = P.many (P.char ' ')
+parseSpace = many (char ' ')
 
 parseSpace1 :: Parser String
-parseSpace1 = P.many1 (P.char ' ')
+parseSpace1 = many1 (char ' ')
 
 parseLinesWith :: Parser a -> Parser [a]
-parseLinesWith p = P.sepEndBy p (P.many1 P.endOfLine)
+parseLinesWith p = sepEndBy p (many1 endOfLine)
+
+parseIntegerList :: Parser [Int]
+parseIntegerList = sepBy parseIntegral (char ',')
 
 
 surroundBy :: Parser b -> Parser a -> Parser b

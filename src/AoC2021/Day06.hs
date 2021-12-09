@@ -3,8 +3,7 @@ module AoC2021.Day06 where
 import           Data.Semigroup        (stimes)
 import           Numeric.LinearAlgebra ((#>), (><))
 import qualified Numeric.LinearAlgebra as M
-import           Parsers               (Parser, parseIntegral)
-import qualified Text.Parsec           as P
+import qualified Parsers               as P
 
 -- Linear (in growth days) time algorithm ----------------------------------------------------------
 -- See Leslie Matrices (https://en.wikipedia.org/wiki/Leslie_matrix)
@@ -48,17 +47,14 @@ solve :: Int -> [Int] -> Int
 solve d = sum . map (f . (d-))
 ----------------------------------------------------------------------------------------------------
 
-parseIntegerList :: Parser [Int]
-parseIntegerList = P.sepBy parseIntegral (P.char ',')
-
 solve01 :: String -> String
-solve01 input = case P.runParser parseIntegerList () "" input of
+solve01 input = case P.runParser P.parseIntegerList () "" input of
   Left e   -> show e
   Right is -> show (solve' 80 is)
 
 
 -- | Way to inefficient, maybe solve the sum of f?
 solve02 :: String -> String
-solve02 input = case P.runParser parseIntegerList () "" input of
+solve02 input = case P.runParser P.parseIntegerList () "" input of
   Left e   -> show e
   Right is -> show (solve' 256 is)
