@@ -100,6 +100,15 @@ solve01 input = case P.runParser parseDay08 () "" input of
     Left e        -> e
     Right results -> show . length . filter (`elem` [1,4,7,8]) $ concat results
 
+solve02 :: Solver
+solve02 input = case P.runParser parseDay08 () "" input of
+  Left e -> show e
+  Right lines -> case traverse (uncurry solveLine) lines of
+    Left e        -> e
+    Right results -> show . sum . map unDigits4 $ results
+  where
+    unDigits4 [a,b,c,d] = a*1000 + b*100 + c * 10 + d
+
 -- Parsing stuff -----------------------------------------------------------------------------------
 parseSegments :: P.Parser [Segment]
 parseSegments = P.many1 . P.choice $ [ P.char 'a' >> return A

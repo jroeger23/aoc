@@ -16,6 +16,7 @@ import qualified AoC2021.Day04      as D04
 import qualified AoC2021.Day05      as D05
 import qualified AoC2021.Day06      as D06
 import qualified AoC2021.Day07      as D07
+import qualified AoC2021.Day08      as D08
 import           Data.Maybe         (fromMaybe)
 
 
@@ -31,6 +32,8 @@ implementedSolvers = [ ("day01-1", D01.solve01)
                      , ("day06-1", D06.solve01)
                      , ("day06-2", D06.solve02)
                      , ("day07-1", D07.solve01)
+                     , ("day08-1", D08.solve01)
+                     , ("day08-2", D08.solve02)
                      ]
 
 printUsage :: IO ()
