@@ -4,6 +4,7 @@ module Parsers (
 ) where
 
 import           Text.Parsec
+import           Text.Read   (readMaybe)
 
 type Parser = Parsec String ()
 
