@@ -33,6 +33,8 @@ library
       AoC2021.Day06
       AoC2021.Day07
       AoC2021.Day08
+      AoC2021.Day09
+      AoC2021.Day10
       Parsers
       Solver
   other-modules:
@@ -44,6 +46,7 @@ library
     , base >=4.7 && <5
     , containers
     , hmatrix
+    , matrix
     , parsec
     , transformers
   default-language: Haskell2010
@@ -61,6 +64,7 @@ executable aoc2021-exe
     , base >=4.7 && <5
     , containers
     , hmatrix
+    , matrix
     , parsec
     , transformers
   default-language: Haskell2010
@@ -72,6 +76,7 @@ test-suite aoc2021-test
       AoC2021.Day04Spec
       AoC2021.Day05Spec
       AoC2021.Day08Spec
+      AoC2021.Day10Spec
       Paths_aoc2021
   hs-source-dirs:
       test
@@ -83,6 +88,7 @@ test-suite aoc2021-test
     , containers
     , hmatrix
     , hspec
+    , matrix
     , parsec
     , transformers
   default-language: Haskell2010
